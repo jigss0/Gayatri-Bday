@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pacifico&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; color:#fff8ed; background:#130b20;
+  font-family:'Space Grotesk',sans-serif; overflow-x:hidden;
+}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:20;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+.birthday{min-height:100vh;position:relative}
+.hero{
+  min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:50px 20px 80px; position:relative; overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,94,143,.22), transparent 27%),
+    radial-gradient(circle at 20% 80%, rgba(255,188,66,.12), transparent 25%),
+    linear-gradient(135deg,#160b25,#0c0814 75%);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none
+}
+.hero:before{width:280px;height:280px;border:1px solid rgba(255,255,255,.08);top:13%;left:-100px}
+.hero:after{width:420px;height:420px;border:1px solid rgba(255,93,140,.08);bottom:-180px;right:-130px}
+
+.name-mask{
+  position:absolute; top:7vh; left:50%; transform:translateX(-50%) rotate(-3deg);
+  width:min(92vw,900px); overflow:hidden; pointer-events:none; user-select:none;
+}
+.name-mask span{
+  display:block; font-family:'Pacifico',cursive; font-size:clamp(6rem,22vw,14rem);
+  line-height:.85; letter-spacing:-.08em; white-space:nowrap; text-align:center;
+  color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.12);
+  text-shadow:10px 10px 0 rgba(255,72,130,.08),-8px -4px 0 rgba(255,196,80,.05);
+}
+.scribble{position:absolute;font-weight:700;letter-spacing:.1em;z-index:1}
+.s1{top:15%;right:8%;font-size:clamp(1rem,3vw,1.5rem);color:#ffcc61;transform:rotate(8deg)}
+.s2{top:24%;left:7%;font-size:1rem;color:#ff5e91;transform:rotate(-12deg)}
+
+.cake-wrap{position:relative;margin-top:80px;z-index:2;animation:float 3s ease-in-out infinite}
+.cake{width:190px;height:135px;position:relative;filter:drop-shadow(0 18px 22px rgba(0,0,0,.35))}
+.cake-body{
+  position:absolute;left:18px;bottom:0;width:154px;height:78px;border-radius:12px 12px 20px 20px;
+  background:linear-gradient(#ff91aa 0 25%,#ff6f95 25% 100%);
+  box-shadow:inset 0 -12px rgba(151,35,74,.15);
+}
+.cake-top{
+  position:absolute;left:13px;top:45px;width:164px;height:38px;border-radius:50%;
+  background:#ffd5dc;border:5px solid #ffb5c4;z-index:3
+}
+.cream.top{position:absolute;left:17px;top:59px;width:156px;height:28px;background:#fff0df;border-radius:0 0 50% 50%;z-index:4}
+.drip{position:absolute;top:69px;width:16px;height:30px;background:#fff0df;border-radius:0 0 12px 12px;z-index:5}
+.d1{left:42px}.d2{left:92px;height:38px}.d3{left:137px;height:24px}
+.candle{position:absolute;left:88px;top:12px;width:14px;height:49px;background:repeating-linear-gradient(135deg,#fff 0 7px,#ff5d8d 7px 14px);border-radius:4px;z-index:6}
+.candle i{position:absolute;left:2px;top:-17px;width:10px;height:18px;border-radius:60% 40% 55% 45%;background:#ffd35b;box-shadow:0 0 18px #ffae38;animation:flicker .7s infinite alternate}
+.cherry{position:absolute;width:15px;height:15px;border-radius:50%;background:#df285f;z-index:7;top:54px}
+.c1{left:48px}.c2{left:120px}.c3{left:83px;top:61px}
+.cherry:after{content:"";position:absolute;width:8px;height:11px;border-left:2px solid #5d944f;top:-9px;left:8px;transform:rotate(25deg)}
+.sparkle{position:absolute;color:#ffd35b;font-size:25px;animation:twinkle 1.5s infinite alternate}
+.sp1{left:-45px;top:40px}.sp2{right:-50px;top:10px}
+
+h1{text-align:center;font-size:clamp(2.4rem,9vw,5.5rem);line-height:.9;margin:28px 0 12px;letter-spacing:-.07em;z-index:3}
+h1 em{font-family:'Pacifico',cursive;font-style:normal;color:#ff7199;font-weight:400}
+.sub{margin:0;text-align:center;color:#cfc0d7;font-size:clamp(.9rem,2.5vw,1.05rem);z-index:3}
+.open-btn{
+  margin-top:28px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);
+  color:#fff;padding:13px 18px;border-radius:999px;font-family:'DM Mono',monospace;font-size:.75rem;
+  cursor:pointer;backdrop-filter:blur(12px);transition:.25s;z-index:4
+}
+.open-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.12)}
+.open-btn b{color:#ff7199;margin-left:8px}
+
+.polaroid-section{
+  min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;
+  padding:90px 20px;background:#cbd6b2;overflow:hidden;
+}
+.polaroid-section:after{
+  content:"✿   ♡   ✦   ☼   ✎   ❀";
+  position:absolute;inset:0;
+  display:flex;align-items:flex-start;justify-content:space-around;
+  padding:34px 5vw;color:rgba(58,76,48,.30);
+  font-size:clamp(18px,4vw,30px);letter-spacing:2vw;
+  transform:rotate(-2deg);pointer-events:none;
+}
+.polaroid-section:before{
+  content:"";position:absolute;inset:0;opacity:.22;
+  background-image:
+      radial-gradient(circle at 12% 18%, transparent 0 34px, rgba(74,91,61,.14) 35px 36px, transparent 37px),
+      radial-gradient(circle at 88% 72%, transparent 0 45px, rgba(74,91,61,.11) 46px 47px, transparent 48px),
+      linear-gradient(25deg, transparent 48%, rgba(74,91,61,.08) 49% 50%, transparent 51%),
+      linear-gradient(-25deg, transparent 48%, rgba(74,91,61,.06) 49% 50%, transparent 51%);
+    background-size: auto, auto, 120px 120px, 150px 150px;
+}
+.doodle{position:absolute;z-index:1;color:rgba(58,76,48,.48);font-family:'Pacifico',cursive;pointer-events:none}
+.doodle-heart{left:9%;top:22%;font-size:42px;transform:rotate(-18deg)}
+.doodle-star{right:12%;top:29%;font-size:32px;transform:rotate(12deg)}
+.doodle-flower{left:15%;bottom:18%;font-size:31px;transform:rotate(8deg)}
+.doodle-spark{right:11%;bottom:20%;font-size:43px;transform:rotate(-10deg)}
+.polaroid{
+  position:relative;width:min(340px,86vw);background:#fffdf7;padding:14px 14px 26px;
+  box-shadow:0 25px 55px rgba(36,19,10,.28);transform:rotate(-4deg);
+  z-index:2;transition:transform .6s cubic-bezier(.2,.8,.2,1)
+}
+.polaroid:hover{transform:rotate(1deg) translateY(-8px)}
+.photo{
+  height:330px;background:
+  radial-gradient(circle at 30% 25%,#ffcf63 0 2px,transparent 3px),
+  radial-gradient(circle at 75% 35%,#ff7199 0 2px,transparent 3px),
+  linear-gradient(145deg,#3b1d4b,#9d3e68 52%,#f18b72);
+  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:saturate(.94) contrast(.97)}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,transparent 30%,rgba(255,255,255,.12),transparent 55%)}
+.photo-stars{position:absolute;top:28px;color:#ffe1a2;font-size:18px;letter-spacing:5px}
+.mini-cake{font-size:74px;filter:drop-shadow(0 12px 8px rgba(0,0,0,.25));animation:float 2.8s ease-in-out infinite}
+.photo-word{position:absolute;bottom:24px;left:22px;color:#fff8ed;font-family:'Pacifico',cursive;font-size:27px;line-height:.85;transform:rotate(-7deg)}
+.caption{text-align:center;color:#2b2030}
+.tiny{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.18em;margin-top:15px;color:#9d7b72}
+.caption p{font-family:'Pacifico',cursive;font-size:17px;line-height:1.55;margin:10px 0 12px}
+.caption small{font-family:'DM Mono',monospace;font-size:8px;color:#927e7c}
+.tape{
+  position:absolute;top:11%;left:50%;transform:translateX(-50%) rotate(2deg);width:95px;height:25px;
+  background:rgba(220,188,112,.68);z-index:3;mix-blend-mode:multiply
+}
+footer{background:#cbd6b2;color:#58634a;text-align:center;padding:0 20px 40px;font:9px 'DM Mono',monospace;letter-spacing:.08em}
+
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+.confetti span{position:absolute;width:7px;height:13px;top:-20px;animation:fall linear forwards}
+
+@keyframes float{50%{transform:translateY(-9px) rotate(1deg)}}
+@keyframes flicker{to{transform:scale(1.15) translateY(-2px);opacity:.8}}
+@keyframes twinkle{to{opacity:.3;transform:scale(.75) rotate(20deg)}}
+@keyframes fall{to{transform:translate3d(var(--x),110vh,0) rotate(720deg);opacity:0}}
+
+@media(max-width:500px){
+  .cake{transform:scale(.88)}
+  .cake-wrap{margin-top:70px}
+  .scribble.s1{right:4%}.scribble.s2{left:3%}
+  .photo{height:300px}
+}
